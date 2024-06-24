@@ -1,0 +1,32 @@
+#include <stdio.h>
+
+void fetch() 
+{
+    printf("Fetch stage complete.\n");
+
+}
+void decode() 
+{
+    printf("Decode stage complete.\n");
+}
+void execute() 
+{
+    printf("Execute stage complete.\n");
+}
+
+int main() 
+{
+    int clock_cycles = 0;
+    printf("Instruction 1:\n");
+    fetch();
+    decode();
+    execute();
+    clock_cycles += 3;
+    printf("Instruction 2:\n");
+    fetch();
+    decode();
+    execute();
+    clock_cycles += 3; 
+    printf("Total clock cycles for 2 instructions: %d\n", clock_cycles);
+    return 0;
+}

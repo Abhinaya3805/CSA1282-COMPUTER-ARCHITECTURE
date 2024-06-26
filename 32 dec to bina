@@ -1,0 +1,51 @@
+#include <stdio.h>
+
+// Function to convert decimal to binary
+void decimal_to_binary(int decimalNum) {
+    // Array to store binary digits
+    int binaryNum[32]; // Assuming a 32-bit integer
+
+    // Initialize index for binaryNum array
+    int i = 0;
+
+    // Handle negative numbers
+    if (decimalNum < 0) {
+        printf("Binary representation of %d is: ", decimalNum);
+        printf("-");
+        decimalNum = -decimalNum;
+    } else {
+        printf("Binary representation of %d is: ", decimalNum);
+    }
+
+    // Handle special case of 0
+    if (decimalNum == 0) {
+        printf("0\n");
+        return;
+    }
+
+    // Convert decimal number to binary
+    while (decimalNum > 0) {
+        binaryNum[i] = decimalNum % 2;
+        decimalNum = decimalNum / 2;
+        i++;
+    }
+
+    // Print binary representation in reverse order
+    for (int j = i - 1; j >= 0; j--) {
+        printf("%d", binaryNum[j]);
+    }
+    printf("\n");
+}
+
+int main() {
+    int decimalNumber;
+
+    // Input decimal number from user
+    printf("Enter a decimal number: ");
+    scanf("%d", &decimalNumber);
+
+    // Call function to convert decimal to binary
+    decimal_to_binary(decimalNumber);
+
+    return 0;
+}
